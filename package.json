@@ -1,0 +1,25 @@
+{
+  "name": "@tybys/vscodecpp",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toyobayashi/vscodecpp.git"
+  },
+  "keywords": [
+    "cpp"
+  ],
+  "author": "toyobayashi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toyobayashi/vscodecpp/issues"
+  },
+  "homepage": "https://github.com/toyobayashi/vscodecpp#readme",
+  "dependencies": {
+    "fs-extra": "^8.1.0"
+  }
+}

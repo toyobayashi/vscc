@@ -1,0 +1,95 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "VC Debug",
+      "type": "shell",
+      "command": "build.bat",
+      "args": [
+        "Debug",
+        "static"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "VC Release",
+      "type": "shell",
+      "command": "build.bat",
+      "args": [
+        "Release",
+        "static"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "GCC Debug",
+      "type": "shell",
+      "command": "./build.sh",
+      "args": [
+        "Debug"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "GCC Release",
+      "type": "shell",
+      "command": "./build.sh",
+      "args": [
+        "Release"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "Clang Debug",
+      "type": "shell",
+      "command": "./build.sh",
+      "args": [
+        "Debug"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "Clang Release",
+      "type": "shell",
+      "command": "./build.sh",
+      "args": [
+        "Release"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "WSL GCC Debug",
+      "type": "shell",
+      "command": "./build.sh",
+      "args": [
+        "Debug"
+      ],
+      "group": "build",
+      "options": {
+        "shell": {
+          "executable": "c:\\windows\\System32\\wsl.exe",
+          "args": [
+            "-e"
+          ]
+        }
+      }
+    },
+    {
+      "label": "WSL GCC Release",
+      "type": "shell",
+      "command": "./build.sh",
+      "args": [
+        "Release"
+      ],
+      "group": "build",
+      "options": {
+        "shell": {
+          "executable": "c:\\windows\\System32\\wsl.exe",
+          "args": [
+            "-e"
+          ]
+        }
+      }
+    }
+  ]
+}

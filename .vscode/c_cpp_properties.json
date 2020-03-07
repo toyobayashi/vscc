@@ -1,0 +1,50 @@
+{
+  "env": {
+    "includePath": [
+      "${default}",
+      "${workspaceFolder}/include"
+    ],
+    "clPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.24.28314/bin/Hostx86/x86/cl.exe",
+    "gccPath": "/usr/bin/gcc",
+    "clangPath": "/usr/bin/clang"
+  },
+  "configurations": [
+    {
+      "name": "Win32",
+      "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
+      "compilerPath": "${clPath}",
+      "windowsSdkVersion": "10.0.18362.1",
+      "intelliSenseMode": "msvc-x86",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "includePath": ["${includePath}"]
+    },
+    {
+      "name": "Linux",
+      "defines": [],
+      "compilerPath": "${gccPath}",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "gcc-x64",
+      "browse": {
+        "path": [
+          "${workspaceFolder}"
+        ],
+        "limitSymbolsToIncludedHeaders": true,
+        "databaseFilename": ""
+      },
+      "includePath": ["${includePath}"]
+    },
+    {
+      "name": "macOS",
+      "includePath": ["${includePath}"],
+      "defines": [],
+      "macFrameworkPath": ["/System/Library/Frameworks", "/Library/Frameworks"],
+      "compilerPath": "${clangPath}",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "${default}"
+    }
+  ],
+  "version": 4
+}
