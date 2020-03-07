@@ -1,7 +1,5 @@
 file(GLOB_RECURSE TEST_SOURCE_FILES "test/*.c" "test/*.cpp")
 
-set(TEST_EXE_NAME test)
-
 add_executable(${TEST_EXE_NAME}
   ${TEST_SOURCE_FILES}
 )

@@ -15,6 +15,7 @@ project(<project_name>)
 
 set(LIB_NAME <project_name>)
 set(EXE_NAME "${LIB_NAME}main")
+set(TEST_EXE_NAME "${LIB_NAME}test")
 
 include(cmake/lib.cmake)
 include(cmake/exe.cmake)
