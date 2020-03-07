@@ -5,7 +5,7 @@ if(BUILD_DLL)
     ${LIB_SOURCE_FILES}
   )
 
-  target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE BUILD_DLL)
+  target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE "BUILD_DLL_${CMAKE_PROJECT_NAME}")
 
   if(NOT MSVC)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-rpath=$ORIGIN")
