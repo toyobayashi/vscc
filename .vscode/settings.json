@@ -1,3 +1,3 @@
 {
-  "wslProjectRoot": "/mnt/c/Projects/<project_name>"
+  "wslProjectRoot": "<wsl_project_folder>"
 }

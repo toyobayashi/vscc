@@ -6,6 +6,7 @@
       "type": "shell",
       "command": "build.bat",
       "args": [
+        "Win32",
         "Debug",
         "static"
       ],
@@ -16,6 +17,7 @@
       "type": "shell",
       "command": "build.bat",
       "args": [
+        "Win32",
         "Release",
         "static"
       ],
