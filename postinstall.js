@@ -37,7 +37,7 @@ copyList.forEach(item => {
   const p = path.join(cwd, item)
   fs.copySync(path.join(__dirname, item), p)
   if (item.endsWith('.sh')) {
-    fs.writeFileSync(p, fs.readFileSync(p, 'utf8').replace(/\r\n/g, name), '\n')
+    fs.writeFileSync(p, fs.readFileSync(p, 'utf8').replace(/\r\n/g, '\n'), 'utf8')
   }
 })
 
