@@ -62,9 +62,10 @@
     {
       "label": "WSL GCC Debug",
       "type": "shell",
-      "command": "./build.sh",
+      "command": "make",
       "args": [
-        "Debug"
+        "-C",
+        "./build/linux/Debug"
       ],
       "group": "build",
       "options": {
@@ -77,11 +78,12 @@
       }
     },
     {
-      "label": "WSL GCC Release",
+      "label": "WSL GCC Debug",
       "type": "shell",
-      "command": "./build.sh",
+      "command": "make",
       "args": [
-        "Release"
+        "-C",
+        "./build/linux/Release"
       ],
       "group": "build",
       "options": {
