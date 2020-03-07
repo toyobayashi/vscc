@@ -38,15 +38,15 @@ if (name) {
 }
 
 function findProjectRoot (start) {
-  let current = start ? resolve(start) : process.cwd()
+  let current = start ? path.resolve(start) : process.cwd()
   let previous = ''
   do {
-    const target = join(current, 'package.json')
-    if (existsSync(target) && statSync(target).isFile()) {
+    const target = path.join(current, 'package.json')
+    if (fs.existsSync(target) && fs.statSync(target).isFile()) {
       return current
     }
     previous = current
-    current = dirname(current)
+    current = path.dirname(current)
   } while (current !== previous)
   return ''
 }
