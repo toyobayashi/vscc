@@ -81,25 +81,25 @@ include(cmake/exe.cmake)
 include(cmake/test.cmake)
 
 execute_process(COMMAND node index.js
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  OUTPUT_VARIABLE DEPS_LIST
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+  OUTPUT_VARIABLE DEPS_LIST_<project_name>
 )
 execute_process(COMMAND node index.js lib
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  OUTPUT_VARIABLE LIB_LIST
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+  OUTPUT_VARIABLE LIB_LIST_<project_name>
 )
 
-if(DEPS_LIST)
-  string(REPLACE "\n" ";" DEPS_LIST ${DEPS_LIST})
-  foreach(pkg ${DEPS_LIST})
+if(DEPS_LIST_<project_name>)
+  string(REPLACE "\n" ";" DEPS_LIST_<project_name> ${DEPS_LIST_<project_name>})
+  foreach(pkg ${DEPS_LIST_<project_name>})
     message("add_subdirectory: ${pkg}")
     add_subdirectory(${pkg})
   endforeach()
 endif()
 
-if(LIB_LIST)
-  string(REPLACE "\n" ";" LIB_LIST ${LIB_LIST})
-  target_link_libraries(<project_name> ${LIB_LIST})
+if(LIB_LIST_<project_name>)
+  string(REPLACE "\n" ";" LIB_LIST_<project_name> ${LIB_LIST_<project_name>})
+  target_link_libraries(<project_name> ${LIB_LIST_<project_name>})
 endif()
 ```
 
@@ -116,25 +116,25 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 include(cmake/exe.cmake)
 
 execute_process(COMMAND node index.js
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  OUTPUT_VARIABLE DEPS_LIST
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+  OUTPUT_VARIABLE DEPS_LIST_foo
 )
 execute_process(COMMAND node index.js lib
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  OUTPUT_VARIABLE LIB_LIST
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+  OUTPUT_VARIABLE LIB_LIST_foo
 )
 
-if(DEPS_LIST)
-  string(REPLACE "\n" ";" DEPS_LIST ${DEPS_LIST})
-  foreach(pkg ${DEPS_LIST})
+if(DEPS_LIST_foo)
+  string(REPLACE "\n" ";" DEPS_LIST_foo ${DEPS_LIST_foo})
+  foreach(pkg ${DEPS_LIST_foo})
     message("add_subdirectory: ${pkg}")
     add_subdirectory(${pkg})
   endforeach()
 endif()
 
-if(LIB_LIST)
-  string(REPLACE "\n" ";" LIB_LIST ${LIB_LIST})
-  target_link_libraries(foo ${LIB_LIST})
+if(LIB_LIST_foo)
+  string(REPLACE "\n" ";" LIB_LIST_foo ${LIB_LIST_foo})
+  target_link_libraries(foo ${LIB_LIST_foo})
 endif()
 ```
 
