@@ -9,7 +9,7 @@ if (cwd.includes(path.sep + 'node_modules')) {
 }
 
 if (process.platform === 'win32') {
-  wslProjectFolder = `/mnt/${cwd.split(':\\')[0]}/${cwd.split(':\\')[1].replace(/\\/g, '/')}`
+  wslProjectFolder = `/mnt/${cwd.split(':\\')[0].toLowerCase()}/${cwd.split(':\\')[1].replace(/\\/g, '/')}`
 }
 console.log(cwd)
 console.log(wslProjectFolder)
