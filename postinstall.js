@@ -30,7 +30,9 @@ const copyList = [
   '.vscode',
   'cmake',
   'build.bat',
-  'build.sh'
+  'build.sh',
+  'index.js',
+  'CMakeLists.txt'
 ]
 
 copyList.forEach(item => {
@@ -44,7 +46,8 @@ copyList.forEach(item => {
 if (name) {
   const replaceList = [
     'build.bat',
-    'build.sh'
+    'build.sh',
+    'CMakeLists.txt'
   ]
   replaceList.forEach(item => {
     const p = path.join(cwd, item)
