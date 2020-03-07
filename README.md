@@ -92,8 +92,8 @@ execute_process(COMMAND node index.js lib
 if(DEPS_LIST_<project_name>)
   string(REPLACE "\n" ";" DEPS_LIST_<project_name> ${DEPS_LIST_<project_name>})
   foreach(pkg ${DEPS_LIST_<project_name>})
-    message("add_subdirectory: ${pkg}")
-    add_subdirectory(${pkg})
+    message("add_subdirectory: ${pkg} ${pkg}")
+    add_subdirectory(${pkg} ${pkg})
   endforeach()
 endif()
 
@@ -127,8 +127,8 @@ execute_process(COMMAND node index.js lib
 if(DEPS_LIST_foo)
   string(REPLACE "\n" ";" DEPS_LIST_foo ${DEPS_LIST_foo})
   foreach(pkg ${DEPS_LIST_foo})
-    message("add_subdirectory: ${pkg}")
-    add_subdirectory(${pkg})
+    message("add_subdirectory: ${pkg} ${pkg}")
+    add_subdirectory(${pkg} ${pkg})
   endforeach()
 endif()
 
