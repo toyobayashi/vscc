@@ -6,6 +6,7 @@ set(LIB_NAME <project_name>)
 set(EXE_NAME <project_name>main)
 set(TEST_EXE_NAME <project_name>test)
 
+# set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 include(cmake/lib.cmake)
