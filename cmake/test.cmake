@@ -8,7 +8,7 @@ add_executable(${TEST_EXE_NAME}
 
 # set_target_properties(${TEST_EXE_NAME} PROPERTIES CXX_STANDARD 11)
 
-target_link_libraries(${TEST_EXE_NAME} ${CMAKE_PROJECT_NAME})
+target_link_libraries(${TEST_EXE_NAME} ${LIB_NAME})
 
 if(WIN32 AND MSVC)
   set_directory_properties(PROPERTIES VS_STARTUP_PROJECT ${TEST_EXE_NAME})
@@ -20,6 +20,6 @@ if(WIN32 AND MSVC)
     _UNICODE
   )
   if(BUILD_DLL)
-    target_link_options(${TEST_EXE_NAME} PRIVATE /ignore:4199 /DELAYLOAD:${CMAKE_PROJECT_NAME}.dll)
+    target_link_options(${TEST_EXE_NAME} PRIVATE /ignore:4199 /DELAYLOAD:${LIB_NAME}.dll)
   endif()
 endif()
