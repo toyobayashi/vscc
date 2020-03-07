@@ -1,7 +1,13 @@
 const path = require('path')
 const fs = require('fs-extra')
 
-const cwd = process.cwd()
+let cwd = process.cwd()
+
+if (cwd.includes(path.sep + 'node_modules')) {
+  cwd = cwd.split(path.sep + 'node_modules')[0]
+}
+
+console.log(cwd)
 
 const root = findProjectRoot(cwd)
 
