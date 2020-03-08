@@ -7,8 +7,9 @@ function printHelp () {
   console.log('\nOptions:');
   console.log('  -v, -V, --version   output the version number');
   console.log('  -h, --help          output usage information');
+  console.log('  -f, --force         overwrite files if exists');
   console.log('\nCommands:');
-  console.log('  init                copy templates');
+  console.log('  copy                copy templates');
   console.log('\nRepo: https://github.com/toyobayashi/vscc');
 }
 
@@ -28,8 +29,16 @@ function main(argc, argv) {
     return 0;
   }
 
-  if (argv[2] === 'init') {
-    copyTemplates()
+  if (argv[2] === 'copy') {
+    let force = false;
+    for (let i = 3; i < argc; i++) {
+      if (argv[i] === '-f' || argv[i] === '--force') {
+        force = true
+        break
+      }
+    }
+
+    copyTemplates({ overwrite: force })
     return 0;
   }
 

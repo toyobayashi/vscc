@@ -20,7 +20,7 @@ VSCode + CMake = 香
 $ npm install -g toyobayashi/vscc
 $ mkdir ./hello
 $ cd ./hello
-$ vscc init
+$ vscc copy [-f]
 ```
 
 ## Directory structure
