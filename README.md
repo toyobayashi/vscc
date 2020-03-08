@@ -86,9 +86,9 @@ set(TEST_EXE_NAME <project_name>test)
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 include(cmake/lib.cmake)
+include(cmake/exe.cmake)
 
-if(CCPM_BUILD_EXE_AND_TEST)
-  include(cmake/exe.cmake)
+if(CCPM_BUILD_TEST)
   include(cmake/test.cmake)
 endif()
 
@@ -149,9 +149,9 @@ endif()
 
 * `static` - Use `/MT & /MTd` instead of `/MD & /MDd`
 
-* `exe` - Define CCPM_BUILD_EXE_AND_TEST=true
+* `test` - Define CCPM_BUILD_TEST=true
 
-Example: `build.bat Win32 Debug static exe`
+Example: `build.bat Win32 Debug static test`
 
 ### build.sh
 
@@ -159,6 +159,6 @@ Example: `build.bat Win32 Debug static exe`
 
 * `dll` - Define CCPM_BUILD_DLL_\<unscoped_package_name\>
 
-* `exe` - Define CCPM_BUILD_EXE_AND_TEST=true
+* `test` - Define CCPM_BUILD_TEST=true
 
-Example: `./build.sh Debug exe`
+Example: `./build.sh Debug test`

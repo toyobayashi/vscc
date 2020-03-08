@@ -10,9 +10,9 @@ set(TEST_EXE_NAME <project_name>test)
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 include(cmake/lib.cmake)
+include(cmake/exe.cmake)
 
-if(CCPM_BUILD_EXE_AND_TEST)
-  include(cmake/exe.cmake)
+if(CCPM_BUILD_TEST)
   include(cmake/test.cmake)
 endif()
 
