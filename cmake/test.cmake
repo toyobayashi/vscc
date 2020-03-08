@@ -17,7 +17,7 @@ if(WIN32 AND MSVC)
     UNICODE
     _UNICODE
   )
-  if(BUILD_DLL)
+  if(CCPM_BUILD_DLL)
     target_link_options(${TEST_EXE_NAME} PRIVATE /ignore:4199 /DELAYLOAD:${LIB_NAME}.dll)
   endif()
 endif()
