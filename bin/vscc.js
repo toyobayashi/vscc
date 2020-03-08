@@ -3,10 +3,11 @@
 const copyTemplates = require('../lib/copy.js')
 
 function printHelp () {
-  console.log('Usage: vscc [options]');
+  console.log('Usage: vscc [command] [options]');
   console.log('\nOptions:');
   console.log('  -v, -V, --version   output the version number');
   console.log('  -h, --help          output usage information');
+  console.log('\nCommands:');
   console.log('  init                copy templates');
   console.log('\nRepo: https://github.com/toyobayashi/vscc');
 }
