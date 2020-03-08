@@ -1,14 +1,15 @@
 {
-  "name": "@tybys/vscodecpp",
+  "name": "@tybys/vscc",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "postinstall": "node postinstall.js"
+  "scripts": {},
+  "bin": {
+    "vscc": "./bin/vscc.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/toyobayashi/vscodecpp.git"
+    "url": "git+https://github.com/toyobayashi/vscc.git"
   },
   "keywords": [
     "cpp"
@@ -16,9 +17,9 @@
   "author": "toyobayashi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/toyobayashi/vscodecpp/issues"
+    "url": "https://github.com/toyobayashi/vscc/issues"
   },
-  "homepage": "https://github.com/toyobayashi/vscodecpp#readme",
+  "homepage": "https://github.com/toyobayashi/vscc#readme",
   "dependencies": {
     "fs-extra": "^8.1.0"
   }

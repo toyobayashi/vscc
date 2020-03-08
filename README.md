@@ -1,4 +1,4 @@
-# vscodecpp
+# vscc
 
 VSCode + CMake = 香
 
@@ -12,10 +12,15 @@ VSCode + CMake = 香
 
 * C/C++ environment (windows: VS / linux: gcc / mac: clang)
 
+* VSCode Extension: C/C++ for Visual Studio Code
+
 ## Generate vscode configuration
 
 ``` bash
-$ npm install -D toyobayashi/vscodecpp
+$ npm install -g toyobayashi/vscc
+$ mkdir ./hello
+$ cd ./hello
+$ vscc init
 ```
 
 ## Directory structure
