@@ -36,5 +36,5 @@ endif()
 
 target_include_directories(${LIB_NAME}
   PUBLIC
-    ${PROJECT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
