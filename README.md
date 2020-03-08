@@ -1,6 +1,8 @@
 # vscc
 
-VSCode + CMake = 香
+CMake project scaffold.
+
+VSCode + CMake = Delicious
 
 ## Prerequest
 
@@ -149,7 +151,7 @@ endif()
 
 * `exe` - Define CCPM_BUILD_EXE_AND_TEST=true
 
-Example: `build.bat Win32 Debug static`
+Example: `build.bat Win32 Debug static exe`
 
 ### build.sh
 
@@ -159,4 +161,4 @@ Example: `build.bat Win32 Debug static`
 
 * `exe` - Define CCPM_BUILD_EXE_AND_TEST=true
 
-Example: `./build.sh Debug`
+Example: `./build.sh Debug exe`

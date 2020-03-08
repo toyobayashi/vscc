@@ -1,7 +1,7 @@
 {
-  "name": "@tybys/vscc",
-  "version": "0.0.1",
-  "description": "",
+  "name": "@ccpm/vscc",
+  "version": "0.1.0",
+  "description": "CMake project scaffold.",
   "main": "index.js",
   "scripts": {},
   "bin": {
