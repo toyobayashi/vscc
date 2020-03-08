@@ -54,7 +54,7 @@ cd ..\..\..
 
 set libout=dist\win\%arch%\lib
 set binout=dist\win\%arch%\bin
-set headerout=dist\include\<project_name>
+set headerout=dist\include
 set libsource=%cmakebuilddir%\%mode%\*.lib
 set dllsource=%cmakebuilddir%\%mode%\*.dll
 set exesource=%cmakebuilddir%\%mode%\*.exe
@@ -68,5 +68,5 @@ if /i "%mode%"=="Release" (
   if exist %dllsource% copy %dllsource% %binout%\*>nul
 
   if not exist %headerout% mkdir %headerout%
-  if exist include\* copy include\* %headerout%\*>nul
+  if exist include xcopy /E /Q /Y include %headerout%>nul
 )

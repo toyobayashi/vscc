@@ -20,13 +20,13 @@ cmake --build .
 cd ../../..
 
 if [ "$type" == "Release" ]; then
-  headerout="dist/include/<project_name>"
+  headerout="dist/include"
   src_dir="./build/$os/Release"
   dest_dir="dist/$os/bin"
   mkdir -p "$headerout"
   mkdir -p "dist/$os/lib"
   mkdir -p $dest_dir
-  cp ./include/* "$headerout"
+  cp -rpf ./include/* "$headerout"
   cp "$src_dir"/*.a "dist/$os/lib"
   cp "$src_dir"/{*.so,*.dylib} $dest_dir
 
