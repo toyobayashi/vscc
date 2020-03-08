@@ -16,7 +16,8 @@ deps.forEach(key => {
   }
   const dir = findProjectRoot(main)
   if (fs.existsSync(path.join(dir, 'CMakeLists.txt')) || fs.existsSync(path.join(dir, 'CMakelists.txt'))) {
-    paths.push(path.relative(__dirname, dir).replace(/\\/g, '/'))
+    const relativeDir = path.relative(__dirname, dir).replace(/\\/g, '/')
+    paths.push(`${dir},${relativeDir}`)
   }
 })
 
