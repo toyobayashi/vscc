@@ -143,9 +143,11 @@ endif()
 
 * `Win32` / `x64`
 
-* `dll` - Define BUILD_DLL_\<unscoped_package_name\>
+* `dll` - Define CCPM_BUILD_DLL_\<unscoped_package_name\>
 
 * `static` - Use `/MT & /MTd` instead of `/MD & /MDd`
+
+* `exe` - Define CCPM_BUILD_EXE_AND_TEST=true
 
 Example: `build.bat Win32 Debug static`
 
@@ -153,6 +155,8 @@ Example: `build.bat Win32 Debug static`
 
 * `Debug` / `Release`
 
-* `dll` - Define BUILD_DLL_\<unscoped_package_name\>
+* `dll` - Define CCPM_BUILD_DLL_\<unscoped_package_name\>
+
+* `exe` - Define CCPM_BUILD_EXE_AND_TEST=true
 
 Example: `./build.sh Debug`
