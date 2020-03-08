@@ -36,11 +36,10 @@ function main(argc, argv) {
     for (let i = 3; i < argc; i++) {
       if (argv[i] === '-f' || argv[i] === '--force') {
         force = true
-        break
+        continue
       }
       if (argv[i] === '-s' || argv[i] === '--source') {
         source = true
-        break
       }
     }
 
