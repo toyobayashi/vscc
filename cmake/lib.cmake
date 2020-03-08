@@ -1,11 +1,11 @@
 file(GLOB_RECURSE LIB_SOURCE_FILES "src/lib/*.cpp" "src/lib/*.c")
 
-if(BUILD_DLL)
+if(CCPM_BUILD_DLL)
   add_library(${LIB_NAME} SHARED
     ${LIB_SOURCE_FILES}
   )
 
-  target_compile_definitions(${LIB_NAME} PRIVATE "BUILD_DLL_${LIB_NAME}")
+  target_compile_definitions(${LIB_NAME} PRIVATE "CCPM_BUILD_DLL_${LIB_NAME}")
 
   if(NOT MSVC)
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-rpath=$ORIGIN")
@@ -29,7 +29,7 @@ if(WIN32 AND MSVC)
     _UNICODE
   )
 else()
-  if(BUILD_DLL)
+  if(CCPM_BUILD_DLL)
     target_compile_options(${LIB_NAME} PRIVATE -fPIC)
   endif()
 endif()

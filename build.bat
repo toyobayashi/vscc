@@ -4,6 +4,7 @@ set mode=
 set arch=
 set dll=false
 set staticcrt=false
+set exe=false
 
 :next-arg
 if "%1"=="" goto args-done
@@ -12,7 +13,8 @@ if /i "%1"=="Release"       set mode=Release&goto arg-ok
 if /i "%1"=="Win32"         set arch=Win32&goto arg-ok
 if /i "%1"=="x64"           set arch=x64&goto arg-ok
 if /i "%1"=="dll"           set dll=true&goto arg-ok
-if /i "%1"=="static"           set staticcrt=true&goto arg-ok
+if /i "%1"=="static"        set staticcrt=true&goto arg-ok
+if /i "%1"=="exe"           set exe=true&goto arg-ok
 REM if /i "%1"=="arm"           set arch=ARM&goto arg-ok
 REM if /i "%1"=="arm64"         set arch=ARM64&goto arg-ok
 
@@ -39,10 +41,10 @@ if "%staticcrt%"=="true" (
 )
 
 echo ========================================
-echo %cd%$ cmake -A %arch% -DBUILD_DLL=%dll% %staticcrtoverride% ..\..\..
+echo %cd%$ cmake -A %arch% -DCCPM_BUILD_DLL=%dll% -DCCPM_BUILD_EXE_AND_TEST=%exe% %staticcrtoverride% ..\..\..
 echo ========================================
 
-cmake -A %arch% -DBUILD_DLL=%dll% %staticcrtoverride% ..\..\..
+cmake -A %arch% -DCCPM_BUILD_DLL=%dll% -DCCPM_BUILD_EXE_AND_TEST=%exe% %staticcrtoverride% ..\..\..
 
 echo ========================================
 echo %cd%$ cmake --build . --config %mode%

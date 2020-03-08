@@ -10,16 +10,15 @@ set(TEST_EXE_NAME <project_name>test)
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 include(cmake/lib.cmake)
-include(cmake/exe.cmake)
-include(cmake/test.cmake)
+
+if(CCPM_BUILD_EXE_AND_TEST)
+  include(cmake/exe.cmake)
+  include(cmake/test.cmake)
+endif()
 
 execute_process(COMMAND node index.js
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   OUTPUT_VARIABLE DEPS_LIST_<project_name>
-)
-execute_process(COMMAND node index.js lib
-  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-  OUTPUT_VARIABLE LIB_LIST_<project_name>
 )
 
 if(DEPS_LIST_<project_name>)
@@ -28,9 +27,4 @@ if(DEPS_LIST_<project_name>)
     message("add_subdirectory: ${pkg} ${pkg}")
     add_subdirectory(${pkg} ${pkg})
   endforeach()
-endif()
-
-if(LIB_LIST_<project_name>)
-  string(REPLACE "\n" ";" LIB_LIST_<project_name> ${LIB_LIST_<project_name>})
-  target_link_libraries(<project_name> ${LIB_LIST_<project_name>})
 endif()

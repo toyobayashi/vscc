@@ -10,14 +10,14 @@
 #endif
 
 #ifdef _WIN32
-  #ifdef BUILD_DLL_vscc
+  #ifdef CCPM_BUILD_DLL_vscc
   #define VSCC_API __declspec(dllexport)
   #else
   // #define VSCC_API __declspec(dllimport)
   #define VSCC_API
   #endif
 #else
-  #ifdef BUILD_DLL_vscc
+  #ifdef CCPM_BUILD_DLL_vscc
   #define VSCC_API __attribute__((visibility("default")))
   #else
   #define VSCC_API

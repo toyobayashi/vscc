@@ -21,7 +21,7 @@ $ npm install -g toyobayashi/vscc
 $ mkdir ./hello
 $ cd ./hello
 $ npm init -y
-$ vscc copy [-f]
+$ vscc copy [-f] [-s]
 ```
 
 ## Directory structure
@@ -84,16 +84,15 @@ set(TEST_EXE_NAME <project_name>test)
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 include(cmake/lib.cmake)
-include(cmake/exe.cmake)
-include(cmake/test.cmake)
+
+if(CCPM_BUILD_EXE_AND_TEST)
+  include(cmake/exe.cmake)
+  include(cmake/test.cmake)
+endif()
 
 execute_process(COMMAND node index.js
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   OUTPUT_VARIABLE DEPS_LIST_<project_name>
-)
-execute_process(COMMAND node index.js lib
-  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-  OUTPUT_VARIABLE LIB_LIST_<project_name>
 )
 
 if(DEPS_LIST_<project_name>)
@@ -104,10 +103,7 @@ if(DEPS_LIST_<project_name>)
   endforeach()
 endif()
 
-if(LIB_LIST_<project_name>)
-  string(REPLACE "\n" ";" LIB_LIST_<project_name> ${LIB_LIST_<project_name>})
-  target_link_libraries(<project_name> ${LIB_LIST_<project_name>})
-endif()
+# target_link_libraries(<TARGET> ...)
 ```
 
 `/CMakeLists.txt` for writing an executable application
@@ -127,10 +123,6 @@ execute_process(COMMAND node index.js
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
   OUTPUT_VARIABLE DEPS_LIST_foo
 )
-execute_process(COMMAND node index.js lib
-  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-  OUTPUT_VARIABLE LIB_LIST_foo
-)
 
 if(DEPS_LIST_foo)
   string(REPLACE "\n" ";" DEPS_LIST_foo ${DEPS_LIST_foo})
@@ -140,10 +132,7 @@ if(DEPS_LIST_foo)
   endforeach()
 endif()
 
-if(LIB_LIST_foo)
-  string(REPLACE "\n" ";" LIB_LIST_foo ${LIB_LIST_foo})
-  target_link_libraries(foo ${LIB_LIST_foo})
-endif()
+# target_link_libraries(foo ...)
 ```
 
 ## Script option

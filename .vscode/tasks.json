@@ -8,7 +8,8 @@
       "args": [
         "Win32",
         "Debug",
-        "static"
+        "static",
+        "exe"
       ],
       "group": "build"
     },
@@ -19,7 +20,8 @@
       "args": [
         "Win32",
         "Release",
-        "static"
+        "static",
+        "exe"
       ],
       "group": "build"
     },
@@ -28,7 +30,8 @@
       "type": "shell",
       "command": "./build.sh",
       "args": [
-        "Debug"
+        "Debug",
+        "exe"
       ],
       "group": "build"
     },
@@ -37,7 +40,8 @@
       "type": "shell",
       "command": "./build.sh",
       "args": [
-        "Release"
+        "Release",
+        "exe"
       ],
       "group": "build"
     },
@@ -46,7 +50,8 @@
       "type": "shell",
       "command": "./build.sh",
       "args": [
-        "Debug"
+        "Debug",
+        "exe"
       ],
       "group": "build"
     },
@@ -55,7 +60,8 @@
       "type": "shell",
       "command": "./build.sh",
       "args": [
-        "Release"
+        "Release",
+        "exe"
       ],
       "group": "build"
     },

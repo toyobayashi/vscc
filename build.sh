@@ -1,11 +1,13 @@
 type="Release"
 dll="false"
+exe="false"
 
 until [ $# -eq 0 ]
 do
 if [ "$1" == "Release" ]; then type="$1"; fi
 if [ "$1" == "Debug" ]; then type="$1"; fi
 if [ "$1" == "dll" ]; then dll="true"; fi
+if [ "$1" == "exe" ]; then exe="true"; fi
 shift
 done
 
@@ -14,8 +16,8 @@ os=`echo $unamestr | tr "A-Z" "a-z"`
 
 mkdir -p "./build/$os/$type"
 cd "./build/$os/$type"
-echo "cmake -DBUILD_DLL=$dll -DCMAKE_BUILD_TYPE=$type ../../.."
-cmake -DBUILD_DLL="$dll" -DCMAKE_BUILD_TYPE=$type ../../..
+echo "cmake -DCCPM_BUILD_DLL=$dll -DCCPM_BUILD_EXE_AND_TEST=$exe -DCMAKE_BUILD_TYPE=$type ../../.."
+cmake -DCCPM_BUILD_DLL="$dll" -DCCPM_BUILD_EXE_AND_TEST="$exe" -DCMAKE_BUILD_TYPE=$type ../../..
 cmake --build .
 cd ../../..
 
