@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 
 const pkg = require(path.join(__dirname, './package.json'))
 
@@ -7,8 +8,11 @@ const libs = []
 
 if (pkg.dependencies) {
   for (const key in pkg.dependencies) {
-    paths.push(path.relative(__dirname, path.dirname(require.resolve(key))).replace(/\\/g, '/'))
-    libs.push(path.basename(key))
+    const dir = path.dirname(require.resolve(key))
+    if (fs.existsSync(path.join(dir, 'CMakeLists.txt')) || fs.existsSync(path.join(dir, 'CMakelists.txt'))) {
+      paths.push(path.relative(__dirname, dir).replace(/\\/g, '/'))
+      libs.push(path.basename(key))
+    }
   }
 }
 
