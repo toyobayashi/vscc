@@ -23,6 +23,7 @@ $ npm install -g toyobayashi/vscc
 $ mkdir ./hello
 $ cd ./hello
 $ npm init -y
+$ npm install @ccpm/dep-paths
 $ vscc copy [-f] [-s]
 ```
 
