@@ -1,54 +1,56 @@
 #!/usr/bin/env node
 
 const copyTemplates = require('../lib/copy.js')
+const CommandLine = require('./cmdline.js')
+
+const program = new CommandLine()
+const copyCommand = new CommandLine.SubCommand('gen', 'generate templates. default: build config and vscode config files')
+copyCommand.addOption(CommandLine.ArgType.BOOLEAN, 'force', 'f', 'overwrite files if exists', false, false)
+copyCommand.addOption(CommandLine.ArgType.BOOLEAN, 'source', 's', 'generate source templates', false, false)
+copyCommand.addOption(CommandLine.ArgType.BOOLEAN, 'vscode', 'v', 'generate vscode config', false, true)
+copyCommand.addOption(CommandLine.ArgType.BOOLEAN, 'build', 'b', 'generate build config', false, true)
+program.addSubCommand(copyCommand)
+program.addOption(CommandLine.ArgType.BOOLEAN, 'version', 'v', 'output the version number', false, false)
+program.addOption(CommandLine.ArgType.BOOLEAN, 'help', 'h', 'output usage information', false, false)
 
 function printHelp () {
-  console.log('Usage: vscc [command] [options]');
-  console.log('\nOptions:');
-  console.log('  -v, -V, --version   output the version number');
-  console.log('  -h, --help          output usage information');
-  console.log('  -f, --force         overwrite files if exists');
-  console.log('  -s, --source        copy source templates');
-  console.log('\nCommands:');
-  console.log('  copy                copy templates');
-  console.log('\nRepo: https://github.com/toyobayashi/vscc');
+  console.log(program.help())
 }
 
 function main(argc, argv) {
-  if (argc <= 2) {
+  program.parse(argc, argv, true)
+
+  if (program.get('help') || argc < 2) {
     printHelp()
-    return 0;
+    return 0
   }
 
-  if (argv[2] === '-v' || argv[2] === '--version' || argv[2] === '-V') {
+  if (program.get('version')) {
     console.log(require('../package.json').version)
     return 0;
   }
 
-  if (argv[2] === '-h' || argv[2] === '--help') {
+  const cmd = program.getCommand()
+
+  if (!cmd) {
     printHelp()
-    return 0;
+    return 0
   }
 
-  if (argv[2] === 'copy') {
-    let force = false;
-    let source = false;
-    for (let i = 3; i < argc; i++) {
-      if (argv[i] === '-f' || argv[i] === '--force') {
-        force = true
-        continue
-      }
-      if (argv[i] === '-s' || argv[i] === '--source') {
-        source = true
-      }
+  if (cmd === 'gen') {
+    const copyOption = {
+      overwrite: program.get('force'),
+      source: program.get('source'),
+      vscode: program.get('vscode'),
+      build: program.get('build')
     }
-
-    copyTemplates({ overwrite: force, source })
-    return 0;
+    console.log(copyOption)
+    copyTemplates(copyOption)
+    return 0
   }
 
   printHelp()
   return 0;
 }
 
-process.exit(main(process.argv.length, process.argv))
+process.exit(main(process.argv.length - 1, process.argv.slice(1)))
