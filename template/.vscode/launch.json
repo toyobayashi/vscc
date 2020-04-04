@@ -40,7 +40,7 @@
       "request": "launch",
       "program": "${workspaceFolder}/build/darwin/Debug/<project_name>test",
       "args": [],
-      "stopAtEntry": true,
+      "stopAtEntry": false,
       "cwd": "${workspaceFolder}",
       "environment": [],
       "externalConsole": true,
