@@ -28,9 +28,9 @@ VSCode + CMake = Delicious
 
         Manually Installing Visual Studio 2019 and desktop C++ workload.
     
-    * Linux: gcc
+    * Linux: gcc, g++, gdb
     
-    * macOS: clang
+    * macOS: clang, clang++, lldb
 
 * VSCode Extension: C/C++ for Visual Studio Code
 
@@ -41,6 +41,7 @@ $ mkdir ./hello
 $ cd ./hello
 $ npm init -y
 $ npx toyobayashi/vscc gen -s
+$ chmod +x ./build.sh
 ```
 
 ## Directory structure
