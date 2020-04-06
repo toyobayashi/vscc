@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/toyobayashi/vscc#readme",
   "dependencies": {
-    "fs-extra": "^8.1.0"
+    "fs-extra": "^8.1.0",
+    "node-gyp": "^5.1.0"
   }
 }
