@@ -17,7 +17,7 @@ function printHelp () {
   console.log(program.help())
 }
 
-function main(argc, argv) {
+async function main(argc, argv) {
   program.parse(argc, argv, true)
 
   if (program.get('help') || argc < 2) {
@@ -44,8 +44,7 @@ function main(argc, argv) {
       vscode: program.get('vscode'),
       build: program.get('build')
     }
-    console.log(copyOption)
-    copyTemplates(copyOption)
+    await copyTemplates(copyOption)
     return 0
   }
 
@@ -53,4 +52,9 @@ function main(argc, argv) {
   return 0;
 }
 
-process.exit(main(process.argv.length - 1, process.argv.slice(1)))
+main(process.argv.length - 1, process.argv.slice(1))
+  .then(code => process.exit(code))
+  .catch(err => {
+    console.error(err)
+    process.exit(1)
+  })
