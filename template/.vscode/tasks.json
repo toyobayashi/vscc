@@ -68,36 +68,32 @@
     {
       "label": "WSL GCC Debug",
       "type": "shell",
-      "command": "make",
+      "command": "./build.sh",
       "args": [
-        "-C",
-        "./build/linux/Debug"
+        "Debug",
+        "test"
       ],
       "group": "build",
       "options": {
         "shell": {
           "executable": "c:\\windows\\System32\\wsl.exe",
-          "args": [
-            "-e"
-          ]
+          "args": []
         }
       }
     },
     {
-      "label": "WSL GCC Debug",
+      "label": "WSL GCC Release",
       "type": "shell",
-      "command": "make",
+      "command": "./build.sh",
       "args": [
-        "-C",
-        "./build/linux/Release"
+        "Release",
+        "test"
       ],
       "group": "build",
       "options": {
         "shell": {
           "executable": "c:\\windows\\System32\\wsl.exe",
-          "args": [
-            "-e"
-          ]
+          "args": []
         }
       }
     }
