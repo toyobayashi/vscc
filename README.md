@@ -12,19 +12,35 @@ VSCode + CMake = Delicious
 
 * CMake
 
-* C/C++ environment (windows: VS / linux: gcc / mac: clang)
+* C/C++ environment 
+
+    * Windows: MSVC v141 or v142 toolset
+
+        ### Option 1
+
+        Install all the required tools and configurations using Microsoft's windows-build-tools using 
+        
+        `npm install --global --production windows-build-tools`
+        
+        from an elevated PowerShell or CMD.exe (run as Administrator).
+
+        ### Option 2
+
+        Manually Installing Visual Studio 2019 and desktop C++ workload.
+    
+    * Linux: gcc
+    
+    * macOS: clang
 
 * VSCode Extension: C/C++ for Visual Studio Code
 
-## Generate vscode configuration
+## Quick Start
 
 ``` bash
-$ npm install -g toyobayashi/vscc
 $ mkdir ./hello
 $ cd ./hello
 $ npm init -y
-$ npm install @ccpm/dep-paths
-$ vscc gen [-f] [-s]
+$ npx toyobayashi/vscc gen -s
 ```
 
 ## Directory structure
