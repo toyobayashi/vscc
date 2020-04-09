@@ -1,38 +1,10 @@
 # vscc
 
-CMake project scaffold.
+[中文 README](./README_CN.md)
 
-VSCode + CMake = Delicious
+CMake project scaffold based on Node.js.
 
-## Prerequest
-
-* Git
-
-* Node.js
-
-* CMake
-
-* C/C++ environment 
-
-    * Windows: MSVC v141 or v142 toolset
-
-        ### Option 1
-
-        Install all the required tools and configurations using Microsoft's windows-build-tools using 
-        
-        `npm install --global --production windows-build-tools`
-        
-        from an elevated PowerShell or CMD.exe (run as Administrator).
-
-        ### Option 2
-
-        Manually Installing Visual Studio 2019 and desktop C++ workload.
-    
-    * Linux: gcc, g++, gdb
-    
-    * macOS: clang, clang++, lldb
-
-* VSCode Extension: C/C++ for Visual Studio Code
+VSCode + Node.js + CMake = Delicious
 
 ## Quick Start
 
@@ -42,7 +14,38 @@ $ cd ./hello
 $ npm init -y
 $ npx toyobayashi/vscc gen -s
 $ chmod +x ./build.sh
+$ code .
 ```
+
+## Prerequest
+
+* Git
+
+* Node.js
+
+* CMake
+
+* C/C++ environment
+
+    * Windows: MSVC v141 or v142 toolset
+
+        **Option 1**
+
+        Install all the required tools and configurations using Microsoft's windows-build-tools using 
+        
+        `npm install --global --production windows-build-tools`
+        
+        from an elevated PowerShell or CMD.exe (run as Administrator).
+
+        **Option 2**
+
+        Manually Installing Visual Studio 2019 and desktop C++ workload.
+    
+    * Linux: gcc, g++, gdb
+    
+    * macOS: clang, clang++, lldb
+
+* VSCode Extension: C/C++ for Visual Studio Code
 
 ## Directory structure
 
@@ -111,9 +114,10 @@ if(CCPM_BUILD_TEST)
   include(cmake/test.cmake)
 endif()
 
-include(cmake/npm.cmake)
+# include(cmake/npm.cmake)
+# dp_require("node_module" ...)
 
-# target_link_libraries(<TARGET> ...)
+# target_link_libraries(<TARGET> "node_module" ...)
 ```
 
 `/CMakeLists.txt` for writing an executable application
@@ -131,9 +135,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 include(cmake/exe.cmake)
 
-include(cmake/npm.cmake)
+# include(cmake/npm.cmake)
 
-# target_link_libraries(foo ...)
+# dp_require("node_module" ...)
+# target_link_libraries(foo "node_module" ...)
 ```
 
 ## Script option
