@@ -4,7 +4,7 @@
     {
       "label": "VC Debug",
       "type": "shell",
-      "command": "build.bat",
+      "command": ".\\build.bat",
       "args": [
         "Win32",
         "Debug",
@@ -16,7 +16,7 @@
     {
       "label": "VC Release",
       "type": "shell",
-      "command": "build.bat",
+      "command": ".\\build.bat",
       "args": [
         "Win32",
         "Release",
