@@ -5,6 +5,7 @@
       "${workspaceFolder}/include",
       "${workspaceFolder}/node_modules/**"
     ],
+    "defines": [],
     "clPath": "<clpath>",
     "gccPath": "/usr/bin/gcc",
     "clangPath": "/usr/bin/clang"
@@ -12,7 +13,7 @@
   "configurations": [
     {
       "name": "Win32",
-      "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
+      "defines": ["${defines}", "_DEBUG", "UNICODE", "_UNICODE"],
       "compilerPath": "${clPath}",
       "windowsSdkVersion": "<winsdk>",
       "intelliSenseMode": "msvc-x86",
@@ -22,7 +23,7 @@
     },
     {
       "name": "Linux",
-      "defines": [],
+      "defines": ["${defines}"],
       "compilerPath": "${gccPath}",
       "cStandard": "c11",
       "cppStandard": "c++17",
@@ -39,7 +40,7 @@
     {
       "name": "macOS",
       "includePath": ["${includePath}"],
-      "defines": [],
+      "defines": ["${defines}"],
       "macFrameworkPath": ["/System/Library/Frameworks", "/Library/Frameworks"],
       "compilerPath": "${clangPath}",
       "cStandard": "c11",
