@@ -1,5 +1,9 @@
 # vscc
 
+## **DEPRECATED! USE [cgen](https://github.com/toyobayashi/cgen) INSTEAD**
+
+---
+
 [中文 README](./README_CN.md)
 
 CMake project scaffold based on Node.js.

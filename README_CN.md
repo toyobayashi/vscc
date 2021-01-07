@@ -1,5 +1,9 @@
 # vscc
 
+## **不再推荐使用！请移步 [cgen](https://github.com/toyobayashi/cgen) **
+
+---
+
 基于 Node.js 的 CMake 项目脚手架。
 
 VSCode + Node.js + CMake = 香
